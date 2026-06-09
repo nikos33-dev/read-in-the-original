@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Read in the Original</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">Read in the Original</div>
+    <div class="controls">
+      <label>Work
+        <select id="work-select"></select>
+      </label>
+      <label>I read
+        <select id="lang-select"></select>
+      </label>
+    </div>
+    <div class="meta" id="work-meta"></div>
+  </header>
+
+  <main>
+    <nav id="unit-nav" class="unit-nav" aria-label="Units"></nav>
+
+    <section class="center">
+      <div class="unit-bar" id="unit-bar" hidden>
+        <button id="prev-unit" class="navbtn" title="Previous unit (←)">‹ Prev</button>
+        <span id="unit-here" class="unit-here"></span>
+        <button id="next-unit" class="navbtn" title="Next unit (→)">Next ›</button>
+      </div>
+      <section id="reader" class="reader" aria-live="polite">
+        <p class="hint">Loading…</p>
+      </section>
+    </section>
+
+    <aside id="panel" class="panel">
+      <div class="panel-empty" id="panel-empty">
+        <h2>How to use</h2>
+        <p><strong>Pick a passage</strong> from the list on the left.</p>
+        <p><strong>Hover any word</strong> to see what it means — the meaning that fits
+           this line shows first, with the word's other senses below.</p>
+        <p><strong>Click any word</strong> to highlight its phrase and read a grammar
+           explanation of just that phrase, plus a translation of the whole sentence.</p>
+        <p class="accuracy-note"><strong>On accuracy:</strong> the per-word hover glosses are
+           dictionary best-guesses and can be off for archaic or poetic usage. The grammar
+           explanation and full-sentence translation are produced by reading the whole line in
+           context, so they're more reliable — trust them when a single word's gloss looks wrong.</p>
+      </div>
+      <div class="panel-grammar" id="panel-grammar" hidden>
+        <h2>Grammar</h2>
+        <blockquote id="grammar-sentence"></blockquote>
+        <div id="grammar-text"></div>
+        <p class="grammar-context-label" id="grammar-context-label">In the full sentence (translation)</p>
+        <p class="grammar-context" id="grammar-context" hidden></p>
+      </div>
+    </aside>
+  </main>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+
+  <footer>
+    <span id="footer-source"></span>
+    <span class="sep">·</span>
+    <span>Per-word glosses are dictionary best-guesses and can miss archaic or poetic senses.
+      The grammar notes and sentence translations are read in full context and are more reliable.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

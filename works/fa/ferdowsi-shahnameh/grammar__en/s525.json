@@ -1,0 +1,21 @@
+{
+  "segments": {
+    "s525-g9": "سوی + noun marks direction: 'سوی پارس' = 'toward Pars'. آمد is a simple past 3rd-person singular 'he came/went'. بجویش is a verbal clause formed with the present-subjunctive/infinitival stem بجو + enclitic -ش ('him/it') and here functions as a purpose clause 'to seek him'. نهان is an adverb 'secretly/hiddenly' placed after the verb cluster to modify the manner of his coming/search.",
+    "s525-g10": "مگوی is the negative imperative 'do not say/tell' addressed to someone. این سخن is the direct object 'this word/matter' (the thing just mentioned). با کسی uses با to mark the indirect object/recipient ('to/with anyone'); in this negative context کسی has the sense 'anyone'. در جهان is a locative/intensifier 'in the world' giving universal scope.",
+    "s525-g1": "چو ... شد is a temporal subordinate clause: چو here means “when” and شد is the past-tense copular/performative verb “became/turned.” بامداد پگاه is a time adverbial (‘at dawn/early morning’) placed after the clause to specify when the change happened.",
+    "s525-g2": "بفرمود is the courtly/past speech-verb meaning ‘he commanded/said.’ تا introduces a subordinate clause of content/purpose (‘that’/‘so that’), and بازگردد is the verb in the subjunctive/present-finite form used after تا; سپاه (the subject/agent) follows the verb in the classical Persian word order.",
+    "s525-g3": "بیامد is the past tense ‘came/appeared’ and precedes the noun phrase دو رخساره (two countenances) — a topicalized or poetic word order. همرنگ نی uses the adjective همرنگ ‘same-colored’ followed by the archaic negative particle نی meaning ‘not,’ so the phrase means ‘not of the same color.’",
+    "s525-g4": "چو introduces a temporal clause ‘when,’ شب تیره گشت is ‘when night became dark’ (تیره = dark, گشت = became). اندر آمد is the compound verbal idea ‘entered/came in,’ and بری is an adjectival/non‑nominal qualifier after the verb meaning ‘wild/untamed’ that describes the entrant.",
+    "s525-g5": "یکی is the indefinite subject ‘a certain/one,’ نامه is the object ‘a letter,’ and بنوشت is an archaic/past verbal form ‘wrote’ (here used in place of نوشت). نزد پسر is a prepositional phrase indicating the recipient/position ‘to/near the son’ (نزد marking proximity/presence). Word order is classical (subject–object–verb plus prepositional complement).",
+    "s525-g6": "که introduces a content clause (‘that’). کژی is the accusative/theme ‘wrongness/wrongdoing’ which is governed by the verb آورد ‘brought.’ به باغ اندر آورد is ‘brought into the garden’ (به + اندر marking direction/location), and the final بر functions as a postpositional/particle attached to آورد meaning roughly ‘upon’ or marking the action’s effect — a poetic usage.",
+    "s525-g7": "چنان شد is an idiomatic clause ‘thus/so it was.’ ز بالین ما gives the locative/source ‘from/by our bedside,’ and اردشیر is the proper-name subject placed after the locative phrase (poetic word order). The whole unit sets up the circumstance concerning Ardashir.",
+    "s525-g8": "کزان سان is a relative/adverbial phrase ‘from which / in such a manner.’ نجست is the past intransitive ‘leapt/sprang,’ and از کمان marks the source/instrument ‘from the bow.’ ایچ تیر is a negated noun phrase ‘not an arrow / no arrow’ (ایچ = nothing/not one, followed by تیر = arrow). The line therefore describes that in that manner no arrow leapt from the bow."
+  },
+  "sentences": {
+    "s525-s5": "He went toward Pars, secretly seeking him; do not tell this matter to anyone in the world.",
+    "s525-s1": "When night turned to day at dawn, he ordered the army to return.",
+    "s525-s2": "Two faces appeared, not of the same color; when night grew dark, a wild one came in.",
+    "s525-s3": "A certain man wrote a letter to the son, saying that he had brought wrong (a wrong act) into the garden.",
+    "s525-s4": "Thus it was with Ardashir at our bedside: in such a way that no arrow leapt from a bow like that."
+  }
+}

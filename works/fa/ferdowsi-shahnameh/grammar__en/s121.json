@@ -1,0 +1,21 @@
+{
+  "segments": {
+    "s121-g9": "همی is the habitual/progressive particle (here 'was ...ing' or 'kept ...ing'); راند is a past tense transitive verb 'drove' (3sg) with لشکر as its object, so همی راند لشکر = 'he continually/kept driving the army'. بران سان is a contracted poetic form of بر آن سان ('upon/onto that way' or 'in that manner'), and دمان (archaic spelling of دامن) means 'skirt' or 'foothill' — together بران سان دمان gives a locative/figurative phrase 'onto that skirt / on that slope' modifying how/where he drove the army.",
+    "s121-g10": "نجست is a negative past (ن + جست) used impersonally here ('was not found' / 'there was not'); ایچ (archaic for هیچ) is the indefinite 'anything/nothing' as the object of نجست. هنگام رفتن زمان is a temporal noun phrase: هنگام 'at the time', رفتن as a verbal noun/infinitive 'of going/departure', and زمان 'time/moment' — together 'the time for departing'. The clause therefore means 'not a thing was found at the time of going' → 'there was not a single moment to depart.'",
+    "s121-g1": "چو introduces a temporal clause 'when'; the prepositional phrase ز مازندران ('from Mazandaran') follows the name رستم, and the verb گشت (past of گشتن) with the adverb باز after it yields 'returned / came back'. Word order is Name + prepositional phrase + verb + adverb, a common poetic order for 'X returned'.",
+    "s121-g2": "شه is the subject 'the king'; اندر زمان is a temporal/locative phrase 'at that time' that modifies the action; رزم را marks 'rhezm' (battle) as the definite object with را; کرد ساز is a compound predication where کرد (did/made) combines with ساز (here 'preparations / means') to mean 'made preparations'. The verb comes after its object and complements, typical in Persian.",
+    "s121-g3": "سراپرده is the object 'the inner curtain / the curtain of the chamber'; از شهر بیرون is a prepositional phrase 'out of/from the city'; کشید is the past verb 'drew / pulled' placed at the end. The phrase literally reads 'he drew the inner curtain out of the city'.",
+    "s121-g4": "سپه را is the definite object 'the army' (را marks definiteness/emphasis). همه سوی هامون is an adverbial phrase 'all toward the plain' (همه modifying سوی), and کشید (same verb as before) completes the clause: 'he drew/led the army toward the plain.' Object–adverbial–verb order is used here.",
+    "s121-g5": "سپاهی is the noun 'the army/host'; که introduces a qualifying (relative) clause 'which'; خورشید شد uses شد as a copula 'became / seemed' with خورشید as predicate ('became like the sun'); ناپدید is a predicate adjective 'vanished' (here following شد to indicate the state). The clause reads 'the army, which became like the sun, disappeared.'",
+    "s121-g6": "چو introduces a simile 'as / like'; گرد سیاه is a noun phrase 'a black dust/whirl' (گرد here = dust); از میان is 'from the midst/middle'; بردمید is the past verb 'carried off / swept away' (the subject is the army implied from the previous clause). Word order places the simile phrase before the verb.",
+    "s121-g7": "نه ... و نه is a correlative negative 'neither ... nor ...'. دریا پدید means 'the sea appeared' (پدید = appear), and the list continues with هامون و کوه ('plain and mountain'). The negation applies to each item: 'neither sea appeared, nor plain, nor mountain.'",
+    "s121-g8": "زمین آمد is a verbal clause 'the earth came / rose' (آمد used to describe the earth's movement or upheaval). از پای اسپان ستوه is a prepositional phrase 'from the feet of the weary horses' (اسپان = horses, ستوه postpositive adjective 'weary'). Together: 'the ground rose up from under the weary horses' feet.'"
+  },
+  "sentences": {
+    "s121-s5": "Thus he drove the army upon that skirt (of the hill) in that manner; there was not a single moment for departure.",
+    "s121-s1": "When Rostam returned from Mazandaran, the king at once made preparations for battle.",
+    "s121-s2": "He drew back the inner curtain from the city and led the army out toward the plain.",
+    "s121-s3": "The army, which shone like the sun, vanished; like a black whirl of dust it swept away from the midst.",
+    "s121-s4": "Neither sea nor plain nor mountain appeared; the ground rose up from under the weary horses' feet."
+  }
+}

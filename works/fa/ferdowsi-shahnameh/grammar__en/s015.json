@@ -1,0 +1,30 @@
+{
+  "segments": {
+    "s015-g1": "This is a nominal phrase giving title + name followed by an instrumental prepositional phrase. جهاندار (title) precedes the proper name هوشنگ, and با governs the instruments رای و داد (= “with counsel and justice”). The whole chunk functions as the subject/agent of the following verb phrase.",
+    "s015-g2": "به جای + noun = “in the place of …”; note typical Persian SOV order where the direct object (تاج) and its locative complement (بر سر) appear before the verb نهاد (past of نهادن, “placed”). نهاد is the finite past verb meaning ‘placed’.",
+    "s015-g3": "Poetic, slightly inverted temporal phrase. سالی چهل = “for forty years”; چرخ (here) = the wheel of fortune/fate. بگشت is a poetic past/preterite of گشتن (“turned / revolved”); از برش is a compressed locative idea meaning roughly “over him / on his part.”",
+    "s015-g4": "Parallel adjectival phrases built with پر از X = “full of X.” The first describes intellect located in مغز (brain) and the second gives رای دل, “counsel/opinion of the heart.” The coordination (و) links two symmetric predicates modifying the subject.",
+    "s015-g5": "چو = ‘when’ (temporal). بنشست is past tense ‘he sat down’ (beneshast), with بر جایگاه مهی a locative phrase: بر + جایگاه = ‘on the seat/place’ and مهی is an adjectival epithet meaning ‘august/beautiful.’ Word order is temporal marker → verb → locative phrase.",
+    "s015-g6": "چنین (thus) + گفت (past of گفتن, ‘he said’) introduces direct speech; بر تخت شاهنشهی is a locative phrase ‘on the imperial throne.’ In classical Persian the adverb (چنین) often precedes the speech-verb: ‘thus he said.’",
+    "s015-g7": "که here introduces the reported content (that-clause). بر هفت کشور = ‘over seven countries’; منم is emphatic copula ‘I am’ (من + emphatic enclitic -م), and پادشا (archaic form of پادشاه) is the predicate noun ‘king.’ The clause is a straightforward assertion introduced by که.",
+    "s015-g8": "A string of titles in apposition: جهاندار (sovereign) then adjectival/epithet پیروز (victorious) and the coordinating و + فرمانروا (ruler). This is a nominal apposition that amplifies the predicate pادشا above.",
+    "s015-g9": "The prepositional phrase به فرمان means “by the command/of the order of” (instrumental/agentive). یزدان پیروزگر is a genitive chain: یزدان (God, poetic) modified by the epithet پیروزگر placed after it; the whole phrase reads “by the command of God the victorious.”",
+    "s015-g10": "به here marks purpose/benefit (“for”); داد و دهش is a coordinated noun phrase meaning “justice and giving/charity.” تنگ modifies the verb and means “closely/tightly,” and بستم is the past tense, 1st‑person singular of بستن (“I bound/girded”), with کمر as the direct object (‘waist’/‘girdle’). The idiom کمر بستن = “to gird oneself” (prepare/strain oneself).",
+    "s015-g11": "و زان پس is a temporal sequence: و = “and,” زان (poetic contraction of از + آن) = “from that/after that,” پس = “after/then.” جهان یک‌سر آباد is the object phrase meaning “the world entirely prosperous” (یک‌سر = completely), and کرد is the past‑tense verb “he made/caused.”",
+    "s015-g12": "همه روی گیتی is a noun phrase “every/whole surface of the world” (همه modifies روی گیتی). پر از + noun is an idiom meaning “full of …,” so پر از داد کرد = “he made (it) full of justice” (کرد again = caused/made). Word order places the full‑of phrase before the verb.",
+    "s015-g13": "نخستین یکی is an inverted, slightly poetic noun phrase: “first, a certain one” (نخستین = first; یکی = a certain/one). گوهر is the noun ‘gem,’ آمد is the past tense ‘came,’ and به چنگ is a prepositional phrase meaning ‘into the grasp’ (چنگ used figuratively for a hand/claw).",
+    "s015-g14": "به آتش is instrumental/agentive (“by/with fire”), ز marks source (“from”), so ز آهن = “from the iron.” جدا کرد is the compound past meaning “separated” or “set apart” (جدا + کرد), and سنگ at the end is the noun object “stone” (word order places the object after the verb here for poetic effect).",
+    "s015-g15": "سر مایه here is a compound idea ‘chief/main substance’ (سر = head/chief, مایه = substance/resource). کرد is the past tense ‘he made,’ and آهن آبگون is a noun followed by its adjective ‘bluish iron’ (adjective follows noun in Persian). The whole means he chose bluish iron as his primary material.",
+    "s015-g16": "کز is the poetic contraction of که از, here meaning “from which/from that.” آن سنگ خارا = “that flinty/hard stone.” کشیدش is the past verb کشیدن with the enclitic object pronoun -ش = “he pulled/drew it,” and برون is the adverb “out.” Grammatically this is a relative‑source clause: “from that stone he drew it out.”"
+  },
+  "sentences": {
+    "s015-s1": "Hushang the sovereign, by counsel and justice, placed the crown upon his head in place of his ancestor.",
+    "s015-s2": "For forty years the wheel turned above him; he was full of intelligence in his brain and full of counsel in his heart.",
+    "s015-s3": "When he sat on the august seat, he thus spoke upon the imperial throne.",
+    "s015-s4": "‘That I am king over seven countries — a victorious sovereign and ruler.’",
+    "s015-s5": "By the command of the victorious God, I girded my loins tightly for justice and giving.",
+    "s015-s6": "And after that he made the whole world completely prosperous; he filled every surface of the earth with justice.",
+    "s015-s7": "At first a gem came into his grasp; with fire he separated the stone from the iron.",
+    "s015-s8": "He made bluish iron his chief material; from that hard rock he drew it out."
+  }
+}

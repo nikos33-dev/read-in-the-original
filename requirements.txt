@@ -1,0 +1,9 @@
+# Only needed to PROCESS new works. Reading the shipped corpus is standard-library only.
+spacy>=3.7
+hazm>=0.10          # Persian lemmatization/normalization only
+
+# spaCy language models are installed separately, e.g.:
+#   python3 -m spacy download it_core_news_sm
+#   python3 -m spacy download ru_core_news_sm
+#
+# The OpenAI calls go through the system `curl`, so no OpenAI SDK is required.

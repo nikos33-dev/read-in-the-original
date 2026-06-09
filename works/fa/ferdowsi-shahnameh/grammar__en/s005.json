@@ -1,0 +1,21 @@
+{
+  "segments": {
+    "s005-g9": "ایا is an interrogative/introductory particle here ('is it that' / 'if'). آن‌که is a relative/identifying phrase 'the one who' used to introduce the following predication. تو is the explicit 2nd-person subject (poetic 'thou'). آفتابی is a predicate adjective 'sun-like' (lit. 'having the quality of the sun'). همی is the archaic emphatic/present marker attached to the predicate (often marking ongoing or assured state), so the clause reads roughly 'if you are indeed sun-like.'",
+    "s005-g10": "چه بودت is an idiomatic interrogative: چه 'what' plus بودت, where بودt is the older conditional/optative sense 'would have been / would be to you' with the enclitic -ت marking the dative/benefactive 'to you' — together 'what would it be to you'. که introduces the subordinate clause ('that / such that'). بر من is the prepositional object 'upon me'. نتابی is negative present (ن- + تابِی) 'you do not shine', with تابِی being the older present-stem form; همی again is the archaic present/emphatic particle. The whole clause therefore asks roughly 'what would it be to you that you do not shine upon me?' (i.e. 'why would you not shine on me?').",
+    "s005-g1": "ز here is the poetic preposition 'from/of' introducing material or source. یاقوت سرخ is a noun + postpositive adjective ('ruby, red'); است is the copula and چرخ کبود ('the dark‑blue sky') is the subject/predicate complement — literally: 'From red ruby is the azure sky' → 'The azure sky is of red ruby.'",
+    "s005-g2": "نه ... و نه ... is the correlative negation 'neither ... nor ...'. Each از marks origin/material ('from/of'); آب و گرد = 'water and dust' and باد و دود = 'wind and smoke', negated as the possible materials.",
+    "s005-g3": "به here functions as a preposition meaning 'with/by' (classical usage) and is repeated for emphasis before each coordinated phrase. چندین is an indefinite numeral 'several/many', فروغ 'radiance(s)' and چراغ 'lamps' — together 'with many radiances and with many lamps'.",
+    "s005-g4": "بیاراسته is a past‑participle form meaning 'adorned' in this poetic context (classical spelling/prefixing differs from modern forms). چون introduces a simile 'like/as', and به نوروز باغ is the comparative phrase 'a garden at Nowruz' ('به' indicating the setting/manner). The whole segment: 'adorned, like a garden at Nowruz.'",
+    "s005-g5": "روان here is used in the sense 'flowing/moving' (a participial/poetic use) and is followed by اندر 'in/within' plus او 'it' (the place/sky), then the noun phrase گوهر دل‌فروز 'a heart‑delighting gem' — literally: 'flowing within it, a heart‑delighting jewel.'",
+    "s005-g6": "کز is the classical fused form of 'از که' meaning 'from which / from whom' (here 'from which'). او picks out that gem; روشنایی 'brightness/light' is the object; گرفته است is a compound verb (past participle + است) meaning 'has taken' or 'has received'; روز ('the day') is the logical subject — 'from it the day has taken light.'",
+    "s005-g7": "ز marks origin 'from (the)'; خاور 'the east'; بر آید is a 3rd‑person present form from آمد with the prefix بر‑ indicating upward/onward movement, translated 'rises/comes up'; سوی باختر 'toward the west' gives the direction. Word order is classical: origin → verb → direction.",
+    "s005-g8": "نباشد here is classical negative copula meaning 'there is not / is not' (a fixed classical/poetic form). از این 'than this' is the comparator, یک روش 'a single/one way/path' and راست‌تر is the comparative 'straighter/more direct' — together: 'There is not a way straighter than this.'"
+  },
+  "sentences": {
+    "s005-s5": "If you are indeed like the sun, why would you not shine upon me?",
+    "s005-s1": "The azure sky is of red ruby; it is neither of water and dust nor of wind and smoke.",
+    "s005-s2": "Adorned with many gleams and with many lamps, like a garden at Nowruz.",
+    "s005-s3": "Within it flows (or dwells) a heart‑delighting gem, from which the day has taken its brightness.",
+    "s005-s4": "It rises from the east toward the west; there is no path straighter than this."
+  }
+}
