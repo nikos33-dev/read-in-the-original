@@ -20,24 +20,41 @@ Three works, fully processed, all public-domain originals:
 The original texts are public domain. The word glosses, grammar notes, and translations are
 generated, and are shipped under this repo's license.
 
-## Read it (no API key, no models — pure stdlib)
+## Run it — driven by the `/reader` skill
 
-The repo ships the processed corpus (`works/` + `glossaries/`) but not the built site bundle
-(it's a regenerable artifact). Build it once, then serve:
+The reader is operated through the bundled **[Claude Code](https://claude.com/claude-code) `/reader`
+skill**: it builds the static site, serves it, reports coverage, and adds new works. From the repo
+in Claude Code:
+
+- `/reader rebuild site` — build the `site/data/` bundle from the shipped corpus.
+- `/reader status` — coverage across the works.
+- `/reader add a work …` — process a new public-domain text (see below).
+
+The repo ships the processed corpus (`works/` + `glossaries/`) but **not** the built `site/data/`
+bundle — it's a regenerable artifact, rebuilt from the corpus in seconds (free, no API key, pure
+stdlib). Build it once, then open the served site.
+
+### Or run it manually
+
+Everything the skill does maps to a script, if you'd rather not use Claude Code:
 
 ```bash
-python3 build_site.py          # bundle works/ + glossaries/ -> site/data/   (free, stdlib only)
+python3 build_site.py          # build site/data/ from works/ + glossaries/   (free, stdlib only)
 cd site && python3 serve.py    # http://localhost:8780  (no-cache dev server)
 ```
 
-That's all — reading the shipped works needs nothing but Python. Open the URL, pick a work in the
-left nav, hover words, click phrases. To host it publicly, run `build_site.py` and deploy the
-static `site/` folder (including the generated `site/data/`) to any static host.
+Reading the shipped works needs nothing but Python. Open the URL, pick a work in the left nav, hover
+words, click phrases. To host it publicly, run `build_site.py` and deploy the static `site/` folder
+(including the generated `site/data/`) to any static host.
 
 ## Add your own public-domain work
 
-Processing a new text uses **spaCy** (segmentation + lemmatization) and an **OpenAI API key** (the
-glosses, grammar, and translations). Reading the shipped works needs neither.
+Adding a text is also a `/reader` skill action — `/reader add a work "<book> <src>-><known>"` — which
+walks the staged, cost-gated flow (confirm public domain → segment → dry-run cost → calibrate →
+process → rebuild). Under the hood it uses **spaCy** (segmentation + lemmatization) and an **OpenAI
+API key** (the glosses, grammar, translations); reading the shipped works needs neither.
+
+To run that pipeline by hand:
 
 ```bash
 pip install spacy && python3 -m spacy download it_core_news_sm   # ru_core_news_sm, etc.
@@ -52,8 +69,7 @@ python3 build_site.py                             # rebuild the static bundle
 
 The pipeline is staged and **resumable** (re-run continues where it stopped) and **cost-gated**
 (always `--dry-run` + calibrate on 1–2 units before a large run). The default model is
-`gpt-5-mini` (override with `--model`). The bundled `/reader` [Claude Code](https://claude.com/claude-code)
-skill walks the whole flow.
+`gpt-5-mini` (override with `--model`).
 
 ## How it works
 
