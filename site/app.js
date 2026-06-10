@@ -14,6 +14,13 @@ const state = {
 };
 const $ = (id) => document.getElementById(id);
 
+// Touch devices have no hover, so the desktop "hover = meaning, click = grammar"
+// split doesn't work. On touch we disable the tooltip and route a tap into a
+// bottom sheet with Meaning/Grammar tabs (see openSheet). body.touch drives the CSS.
+const touchMQ = window.matchMedia("(hover: none)");
+const isTouch = () => touchMQ.matches;
+function applyTouchMode() { document.body.classList.toggle("touch", isTouch()); }
+
 // Right-to-left target languages (Persian, Arabic, Hebrew, Urdu). Drives text direction +
 // script-friendly font for the original-language panes; the UI chrome stays LTR.
 const RTL = new Set(["fa", "ar", "he", "ur", "ps", "sd"]);
@@ -54,6 +61,9 @@ async function boot() {
   $("lang-select").onchange = () => selectLang($("lang-select").value, true);
   $("prev-unit").onclick = () => step(-1);
   $("next-unit").onclick = () => step(1);
+  applyTouchMode();
+  if (touchMQ.addEventListener) touchMQ.addEventListener("change", applyTouchMode);
+  wireSheet();
   document.addEventListener("keydown", (e) => {
     if (e.target.tagName === "SELECT") return;
     if (e.key === "ArrowLeft") step(-1);
@@ -270,27 +280,32 @@ function senseLine(s) {
   const reg = s.register ? ` <span class="reg">${escapeHtml(s.register)}</span>` : "";
   return `<span class="g">${escapeHtml(s.gloss)}</span>${reg} — ${escapeHtml(s.definition || "")}`;
 }
-function showTip(w, ev) {
+// Build the word-meaning markup (shared by the desktop tooltip and the mobile
+// sheet's Meaning tab). `note` lets each surface point the reader at the in-context grammar.
+function meaningHTML(w, note) {
   const lemma = w.dataset.lemma;
   const entry = state.glossary[lemma];
   if (!entry) {
-    tip.innerHTML = `<div class="tt-head"><span class="tt-word">${escapeHtml(w.textContent)}</span></div>
+    return `<div class="tt-head"><span class="tt-word">${escapeHtml(w.textContent)}</span></div>
       <div class="tt-none">No gloss available.</div>`;
-  } else {
-    const ctxIdx = state.senses?.[w.dataset.lid]?.[+w.dataset.ti];
-    let html = `<div class="tt-head"><span class="tt-word">${escapeHtml(entry.headword || lemma)}</span>`;
-    if (entry.pos) html += `<span class="tt-pos">${escapeHtml(entry.pos)}</span>`;
-    html += `</div>`;
-    if (ctxIdx != null && entry.senses[ctxIdx]) {
-      html += `<div class="tt-context"><div class="lbl">here</div>${senseLine(entry.senses[ctxIdx])}</div>`;
-    }
-    const others = entry.senses.map((s, i) => ({ s, i })).filter(({ i }) => i !== ctxIdx);
-    if (others.length) {
-      html += `<ul class="tt-senses">` + others.map(({ s }) => `<li>${senseLine(s)}</li>`).join("") + `</ul>`;
-    }
-    html += `<div class="tt-note">dictionary gloss · may miss archaic senses — click for the in-context grammar</div>`;
-    tip.innerHTML = html;
   }
+  const ctxIdx = state.senses?.[w.dataset.lid]?.[+w.dataset.ti];
+  let html = `<div class="tt-head"><span class="tt-word">${escapeHtml(entry.headword || lemma)}</span>`;
+  if (entry.pos) html += `<span class="tt-pos">${escapeHtml(entry.pos)}</span>`;
+  html += `</div>`;
+  if (ctxIdx != null && entry.senses[ctxIdx]) {
+    html += `<div class="tt-context"><div class="lbl">here</div>${senseLine(entry.senses[ctxIdx])}</div>`;
+  }
+  const others = entry.senses.map((s, i) => ({ s, i })).filter(({ i }) => i !== ctxIdx);
+  if (others.length) {
+    html += `<ul class="tt-senses">` + others.map(({ s }) => `<li>${senseLine(s)}</li>`).join("") + `</ul>`;
+  }
+  html += `<div class="tt-note">${escapeHtml(note)}</div>`;
+  return html;
+}
+function showTip(w, ev) {
+  if (isTouch()) return;   // touch routes through the bottom sheet instead
+  tip.innerHTML = meaningHTML(w, "dictionary gloss · may miss archaic senses — click for the in-context grammar");
   tip.hidden = false;
   positionTip(ev);
 }
@@ -304,25 +319,29 @@ function positionTip(ev) {
 }
 
 // ---- segment selection (click = grammar) -----------------------------------
-function selectSegment(segId) {
-  if (!segId) return;
-  const seg = state.unit.segments?.[segId];
-  if (!seg) return;
-  state.selectedSeg = segId;
+// Populate the grammar block + highlight the phrase. Returns false if the word
+// isn't part of a known segment. Doesn't decide which panel view is visible —
+// that's the caller's job (desktop swaps the sidebar; mobile uses tabs).
+function fillGrammar(segId) {
   document.querySelectorAll(".word.in-segment").forEach((w) => w.classList.remove("in-segment"));
+  const seg = segId && state.unit.segments?.[segId];
+  const ctx = $("grammar-context"), ctxLabel = $("grammar-context-label");
+  if (!seg) {
+    state.selectedSeg = null;
+    $("grammar-sentence").textContent = "";
+    $("grammar-text").textContent = "Tap a word inside a phrase to see its grammar.";
+    ctx.hidden = ctxLabel.hidden = true;
+    return false;
+  }
+  state.selectedSeg = segId;
   document.querySelectorAll(`.word[data-seg="${CSS.escape(segId)}"]`)
     .forEach((w) => w.classList.add("in-segment"));
-
-  const sent = state.unit.sentences[seg.sid];
-  $("panel-empty").hidden = true;
-  $("panel-grammar").hidden = false;
   const gs = $("grammar-sentence");
   gs.textContent = seg.text.replace(/\n/g, " ");
   gs.dir = isRTL() ? "rtl" : "ltr";
   gs.lang = state.work.target || "";
   $("grammar-text").textContent =
     state.grammar?.segments?.[segId] || "No explanation available.";
-  const ctx = $("grammar-context"), ctxLabel = $("grammar-context-label");
   const translation = state.grammar?.sentences?.[seg.sid] || "";
   if (translation) {
     ctx.hidden = ctxLabel.hidden = false;
@@ -330,10 +349,56 @@ function selectSegment(segId) {
   } else {
     ctx.hidden = ctxLabel.hidden = true;
   }
+  return true;
 }
+
+// Desktop: clicking a word swaps the right sidebar to the grammar view.
+function selectSegment(segId) {
+  if (!segId || !fillGrammar(segId)) return;
+  $("panel-empty").hidden = true;
+  $("panel-meaning").hidden = true;
+  $("panel-grammar").hidden = false;
+}
+
+// Mobile: a tap opens the bottom sheet with both Meaning and Grammar, default tab Meaning.
+function openSheet(w) {
+  $("meaning-body").innerHTML =
+    meaningHTML(w, "dictionary gloss · may miss archaic senses — see the Grammar tab for in-context");
+  fillGrammar(w.dataset.seg);
+  $("panel-empty").hidden = true;
+  setSheetTab("meaning");
+  $("panel").classList.add("sheet-open");
+}
+function setSheetTab(tab) {
+  $("panel-meaning").hidden = tab !== "meaning";
+  $("panel-grammar").hidden = tab !== "grammar";
+  document.querySelectorAll(".sheet-tab").forEach((b) =>
+    b.classList.toggle("active", b.dataset.tab === tab));
+  const scroll = document.querySelector(".panel-scroll");
+  if (scroll) scroll.scrollTop = 0;
+}
+function closeSheet() {
+  $("panel").classList.remove("sheet-open");
+}
+function wireSheet() {
+  $("sheet-close").onclick = closeSheet;
+  document.querySelectorAll(".sheet-tab").forEach((b) =>
+    b.onclick = () => setSheetTab(b.dataset.tab));
+  // swipe the grip down to dismiss
+  const grip = $("sheet-grip");
+  let y0 = null;
+  grip.addEventListener("touchstart", (e) => { y0 = e.touches[0].clientY; }, { passive: true });
+  grip.addEventListener("touchend", (e) => {
+    if (y0 != null && e.changedTouches[0].clientY - y0 > 55) closeSheet();
+    y0 = null;
+  });
+}
+
 function clearGrammar() {
   $("panel-empty").hidden = false;
+  $("panel-meaning").hidden = true;
   $("panel-grammar").hidden = true;
+  closeSheet();
 }
 
 // ---- events ----------------------------------------------------------------
@@ -347,7 +412,14 @@ document.addEventListener("mouseout", (e) => {
   if (e.target.closest?.(".word")) tip.hidden = true;
 });
 document.addEventListener("click", (e) => {
-  const w = e.target.closest?.(".word"); if (w) selectSegment(w.dataset.seg);
+  const w = e.target.closest?.(".word");
+  if (isTouch()) {
+    if (w) { openSheet(w); return; }
+    // tap outside a word and outside the sheet -> dismiss
+    if (!e.target.closest?.("#panel")) closeSheet();
+    return;
+  }
+  if (w) selectSegment(w.dataset.seg);
 });
 
 const ROMANS = ["", "I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV",
